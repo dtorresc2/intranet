@@ -20,8 +20,7 @@ import { CatalogosComponent } from './routes/catalogos/catalogos/catalogos.compo
     SidebarComponent,
     FooterComponent,
     SpinnerComponent,
-    ContentAnimateDirective,
-    CatalogosComponent
+    ContentAnimateDirective
   ],
   imports: [
     BrowserModule,
