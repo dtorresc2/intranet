@@ -11,7 +11,6 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { ContentAnimateDirective } from './shared/directives/content-animate.directive';
-import { CatalogosComponent } from './routes/catalogos/catalogos/catalogos.component';
 
 @NgModule({
   declarations: [
