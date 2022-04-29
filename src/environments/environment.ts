@@ -9,7 +9,8 @@ export const environment = {
 
   // PROCEDIMIENTOS ALMACENADOS
   LISTAR_USUARIOS: 'SELECT_USUARIO',
-  REGISTRAR_USUARIOS: 'Llenar_Usuario'
+  REGISTRAR_USUARIOS: 'Llenar_Usuario',
+  ELIMINAR_USUARIOS: 'DELETE_USUARIO'
 };
 
 /*
