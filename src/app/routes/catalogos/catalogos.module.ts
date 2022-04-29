@@ -5,7 +5,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { UsuariosListComponent } from './usuarios/usuarios-list/usuarios-list.component';
 import { UsuariosFormComponent } from './usuarios/usuarios-form/usuarios-form.component';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { UsuarioService } from 'src/app/service/usuario/usuario.service';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   { path: '', component: CatalogosComponent },
@@ -30,10 +32,20 @@ const routes: Routes = [
 ]
 
 @NgModule({
-  declarations: [CatalogosComponent, UsuariosComponent, UsuariosListComponent, UsuariosFormComponent],
+  declarations: [
+    CatalogosComponent, 
+    UsuariosComponent, 
+    UsuariosListComponent, 
+    UsuariosFormComponent
+  ],
   imports: [
     CommonModule,
+    NgbModule,
+    HttpClientModule,
     RouterModule.forChild(routes)
+  ],
+  providers:[
+    UsuarioService
   ]
 })
 export class CatalogosModule { }

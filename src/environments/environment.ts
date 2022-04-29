@@ -3,7 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+
+  API_URL: 'http://api.repuestoscordero.click/sp/',
+
+  // PROCEDIMIENTOS ALMACENADOS
+  LISTAR_USUARIOS:  'SELECT_USUARIO'
 };
 
 /*

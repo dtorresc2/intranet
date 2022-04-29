@@ -7,49 +7,31 @@
                <table class="table table-striped">
                   <thead>
                      <tr>
-                        <th>
-                           ID
-                        </th>
-                        <th>
-                           Nombre
-                        </th>
-                        <!-- <th>
-                           Progress
-                        </th> -->
-                        <th>
-                           Amount
-                        </th>
-                        <th>
-                           Deadline
-                        </th>
-                        <th style="width: 80px;">Acciones</th>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Estado</th>
+                        <th>Rol</th>
+                        <th style="width: 120px;">Acciones</th>
                      </tr>
                   </thead>
                   <tbody>
-                     <tr>
-                        <!-- <td class="py-1">
-                           <img src="assets/images/faces/face1.jpg" alt="image" />
-                        </td> -->
-                        <td>1</td>
+                     <tr *ngFor="let item of usuarios">
+                        <td>{{item.ID_USUARIO}}</td>
+                        <td>{{item.PRIMER_NOMBRE + ' ' + item.PRIMER_APELLIDO}}</td>
                         <td>
-                           Herman Beck
+                           <label *ngIf="item.ESTADO == 1" class="badge badge-gradient-success">DISPONIBLE</label>
+                           <label *ngIf="item.ESTADO == 0" class="badge badge-gradient-danger">DE BAJA</label>
                         </td>
-                        <!-- <td>
-                           <div class="progress">
-                              <div class="progress-bar bg-success" role="progressbar" style="width: 25%"
-                                 aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                           </div>
-                        </td> -->
-                        <td>
-                           $ 77.99
-                        </td>
-                        <td>
-                           May 15, 2015
-                        </td>
+                        <td>{{item.ROL}}</td>
                         <td>
                            <div>
-                              <button type="button" class="btn btn-outline-primary btn-sm">
+                              <button type="button" class="btn btn-gradient-primary btn-rounded btn-icon btn-sm"
+                                 placement="top" ngbTooltip="Editar">
                                  <i class="mdi mdi-grease-pencil"></i>
+                              </button>
+                              <button type="button" class="btn btn-gradient-primary btn-rounded btn-icon"
+                                 placement="top" ngbTooltip="Eliminar">
+                                 <i class="mdi mdi-delete"></i>
                               </button>
                            </div>
                         </td>
