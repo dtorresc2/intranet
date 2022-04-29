@@ -1,7 +1,7 @@
 FROM node:10 AS ui-build
 WORKDIR /usr/src/app
 COPY . .
-RUN npm install @angular/cli && npm install
+RUN npm install @angular/cli && npm install && npm run build
 
 # FROM node:10 AS server-build
 # WORKDIR /root/

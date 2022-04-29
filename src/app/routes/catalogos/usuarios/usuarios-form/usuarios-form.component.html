@@ -10,38 +10,82 @@
 
 <div class="row">
    <div class="col-md-12 grid-margin stretch-card">
-     <div class="card">
-       <div class="card-body">
-         <h4 class="card-title">Usuario</h4>
-         <p *ngIf="!this.modoEdicion" class="card-description">Creacion de Usuario</p>
-         <p *ngIf="this.modoEdicion" class="card-description">Edicion de Usuario</p>
-         <form class="forms-sample">
-           <div class="form-group">
-             <label for="exampleInputUsername1">Username</label>
-             <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Username">
-           </div>
-           <div class="form-group">
-             <label for="exampleInputEmail1">Email address</label>
-             <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-           </div>
-           <div class="form-group">
-             <label for="exampleInputPassword1">Password</label>
-             <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-           </div>
-           <div class="form-group">
-             <label for="exampleInputConfirmPassword1">Confirm Password</label>
-             <input type="password" class="form-control" id="exampleInputConfirmPassword1" placeholder="Password">
-           </div>
-           <div class="form-check form-check-flat form-check-primary">
-             <label class="form-check-label">
-               <input type="checkbox" class="form-check-input">
-               Estado
-               <i class="input-helper"></i>
-             </label>
-           </div>
-           <button type="submit" class="btn btn-gradient-primary btn-block mr-2">Submit</button>
-         </form>
-       </div>
-     </div>
+      <div class="card">
+         <div class="card-body">
+            <h4 class="card-title">Usuario</h4>
+            <p *ngIf="!this.modoEdicion" class="card-description">Creacion de Usuario</p>
+            <p *ngIf="this.modoEdicion" class="card-description">Edicion de Usuario</p>
+            <form class="forms-sample">
+               <div class="row">
+                  <div class="col-md-6">
+                     <div class="form-group mb-3">
+                        <label>Primer Nombre</label>
+                        <input type="text" class="form-control" placeholder="Primer Nombre">
+                     </div>
+                  </div>
+                  <div class="col-md-6">
+                     <div class="form-group mb-3">
+                        <label>Segundo Nombre</label>
+                        <input type="text" class="form-control" placeholder="Segundo Nombre">
+                     </div>
+                  </div>
+               </div>
+
+               <div class="row">
+                  <div class="col-md-6">
+                     <div class="form-group mb-3">
+                        <label>Primer Apellido</label>
+                        <input type="text" class="form-control" placeholder="Primer Apellido">
+                     </div>
+                  </div>
+                  <div class="col-md-6">
+                     <div class="form-group mb-3">
+                        <label>Segundo Apellido</label>
+                        <input type="text" class="form-control" placeholder="Segundo Apellido">
+                     </div>
+                  </div>
+               </div>
+
+               <div class="row">
+                  <div class="col-md-3">
+                     <div class="form-group mb-3">
+                        <label>Fecha Nacimiento</label>
+                        <input type="date" class="form-control">
+                     </div>
+                  </div>
+
+                  <div class="col-md-3">
+                     <div class="form-group mb-3">
+                        <label>Rol</label>
+                        <input type="text" class="form-control" placeholder="Rol">
+                     </div>
+                  </div>
+
+                  <div class="col-md-4">
+                     <div class="form-group mb-3">
+                        <label>Correo Electronico</label>
+                        <input type="email" class="form-control" placeholder="Correo Electronico">
+                     </div>
+                  </div>
+
+                  <div class="col-md-2">
+                     <div class="form-check form-check-flat form-check-primary">
+                        <label class="form-check-label">
+                           <input type="checkbox" class="form-check-input">
+                           Estado
+                           <i class="input-helper"></i>
+                        </label>
+                     </div>
+                  </div>
+               </div>
+
+               <div class="row">
+                  <div class="col-md-12">
+                     <button type="submit" class="btn btn-gradient-primary btn-block">Guardar</button>
+                  </div>
+               </div>
+            </form>
+         </div>
+      </div>
    </div>
 </div>
