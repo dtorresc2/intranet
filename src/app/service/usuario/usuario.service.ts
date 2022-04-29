@@ -48,7 +48,6 @@ export class UsuarioService {
     });
   }
 
-
   registrarUsuario(dpi, pnombre, snombre, papellido, sapellido, estado, rol, fechaN, correo) {
     let iniciales = pnombre.substring(0, 1) + snombre.substring(0, 1) + papellido.substring(0, 1) + sapellido.substring(0, 1);
 
@@ -76,6 +75,22 @@ export class UsuarioService {
 
     return new Promise((resolve, reject) => {
       this.http.post(environment.API_URL + environment.REGISTRAR_USUARIOS, aux, { headers: this.HEADERS }).toPromise().then(
+        res => {
+          resolve(res);
+        },
+        msg => {
+          reject(msg);
+        })
+    });
+  }
+
+  eliminarUsuario(id): Promise<any> {
+    let aux = {
+      "params": [id]
+    };
+
+    return new Promise((resolve, reject) => {
+      this.http.post(environment.API_URL + environment.ELIMINAR_USUARIOS, aux, { headers: this.HEADERS }).toPromise().then(
         res => {
           resolve(res);
         },

@@ -46,8 +46,8 @@
                                  placement="top" ngbTooltip="Editar" (click)="editarUsuario(item.ID_USUARIO)">
                                  <i class="mdi mdi-grease-pencil"></i>
                               </button>
-                              <button type="button" class="btn btn-gradient-primary btn-rounded btn-icon"
-                                 placement="top" ngbTooltip="Eliminar">
+                              <button *ngIf="item.CONTEO_EVENTOS == 0" type="button" class="btn btn-gradient-primary btn-rounded btn-icon"
+                                 placement="top" ngbTooltip="Eliminar" (click)="eliminarUsuario(item.ID_USUARIO)">
                                  <i class="mdi mdi-delete"></i>
                               </button>
                            </div>
