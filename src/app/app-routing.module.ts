@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/configuracion', pathMatch: 'full' },
   { path: 'configuracion', loadChildren: () => import('./routes/configuracion/configuracion.module').then(m => m.ConfiguracionModule) },
   { path: 'catalogos', loadChildren: () => import('./routes/catalogos/catalogos.module').then(m => m.CatalogosModule) },
+  { path: 'documentos', loadChildren: () => import('./routes/documentos/documentos.module').then(m => m.DocumentosModule) },
   // { path: 'configuracion', component: ConfiguracionComponent },
   // { path: 'basic-ui', loadChildren: () => import('./basic-ui/basic-ui.module').then(m => m.BasicUiModule) },
   // { path: 'charts', loadChildren: () => import('./charts/charts.module').then(m => m.ChartsDemoModule) },

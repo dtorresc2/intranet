@@ -35,9 +35,9 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    CatalogosComponent, 
-    UsuariosComponent, 
-    UsuariosListComponent, 
+    CatalogosComponent,
+    UsuariosComponent,
+    UsuariosListComponent,
     UsuariosFormComponent
   ],
   imports: [
@@ -48,7 +48,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
-  providers:[
+  providers: [
     UsuarioService,
     DateService
   ]
