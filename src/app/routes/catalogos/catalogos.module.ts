@@ -8,6 +8,8 @@ import { UsuariosFormComponent } from './usuarios/usuarios-form/usuarios-form.co
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UsuarioService } from 'src/app/service/usuario/usuario.service';
 import { HttpClientModule } from '@angular/common/http';
+import { DateService } from 'src/app/service/date/date.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: '', component: CatalogosComponent },
@@ -42,10 +44,13 @@ const routes: Routes = [
     CommonModule,
     NgbModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
   providers:[
-    UsuarioService
+    UsuarioService,
+    DateService
   ]
 })
 export class CatalogosModule { }

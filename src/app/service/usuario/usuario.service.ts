@@ -17,16 +17,30 @@ export class UsuarioService {
   }
 
   obtenerUsuarios(): Promise<any> {
-    this.HEADERS = new HttpHeaders();
-    this.HEADERS.set('Content-Type', 'application/json; charset=utf-8');
-    this.HEADERS.set('Access-Control-Allow-Origin', '*');
-
     let aux = {
       "params": ["0"]
     };
 
     return new Promise((resolve, reject) => {
       this.http.post(environment.API_URL + environment.LISTAR_USUARIOS, aux, { headers: this.HEADERS }).toPromise().then(
+        res => {
+          resolve(res);
+        },
+        msg => {
+          reject(msg);
+        })
+    });
+  }
+
+  registrarUsuario(dpi, pnombre, snombre, papellido, sapellido, estado, rol, fechaN, correo) {
+    let iniciales = pnombre.substring(0, 1) + snombre.substring(0, 1) + papellido.substring(0, 1) + sapellido.substring(0, 1);
+
+    let aux = {
+      "params": ["0", dpi, pnombre, snombre, papellido, sapellido, estado, rol, fechaN, iniciales, correo, "", "1"]
+    };
+
+    return new Promise((resolve, reject) => {
+      this.http.post(environment.API_URL + environment.REGISTRAR_USUARIOS, aux, { headers: this.HEADERS }).toPromise().then(
         res => {
           resolve(res);
         },

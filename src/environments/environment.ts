@@ -8,7 +8,8 @@ export const environment = {
   API_URL: 'http://api.repuestoscordero.click/sp/',
 
   // PROCEDIMIENTOS ALMACENADOS
-  LISTAR_USUARIOS:  'SELECT_USUARIO'
+  LISTAR_USUARIOS: 'SELECT_USUARIO',
+  REGISTRAR_USUARIOS: 'Llenar_Usuario'
 };
 
 /*

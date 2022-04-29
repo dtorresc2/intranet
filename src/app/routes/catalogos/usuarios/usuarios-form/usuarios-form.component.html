@@ -7,7 +7,6 @@
    </ol>
 </nav>
 
-
 <div class="row">
    <div class="col-md-12 grid-margin stretch-card">
       <div class="card">
@@ -15,18 +14,34 @@
             <h4 class="card-title">Usuario</h4>
             <p *ngIf="!this.modoEdicion" class="card-description">Creacion de Usuario</p>
             <p *ngIf="this.modoEdicion" class="card-description">Edicion de Usuario</p>
-            <form class="forms-sample">
+            <form class="forms-sample" [formGroup]="this.formGroup">
                <div class="row">
                   <div class="col-md-6">
                      <div class="form-group mb-3">
                         <label>Primer Nombre</label>
-                        <input type="text" class="form-control" placeholder="Primer Nombre">
+                        <input type="text" class="form-control" formControlName="primer_nombre"
+                           placeholder="Primer Nombre" maxlength="50">
+                        <span class="bg-primary text-white float-right pl-2 pr-2" style="font-size: 10px;">
+                           Max: 50 caracteres
+                        </span>
+                        <span class="text-danger" style="font-size: 10px;"
+                           *ngIf="formGroup.get('primer_nombre').hasError('required') && (formGroup.get('primer_nombre').touched || formGroup.get('primer_nombre').dirty)">
+                           Nombre requerido
+                        </span>
                      </div>
                   </div>
                   <div class="col-md-6">
                      <div class="form-group mb-3">
                         <label>Segundo Nombre</label>
-                        <input type="text" class="form-control" placeholder="Segundo Nombre">
+                        <input type="text" class="form-control" formControlName="segundo_nombre"
+                           placeholder="Segundo Nombre" maxlength="50">
+                        <span class="bg-primary text-white float-right pl-2 pr-2" style="font-size: 10px;">
+                           Max: 50 caracteres
+                        </span>
+                        <span class="text-danger" style="font-size: 10px;"
+                           *ngIf="formGroup.get('segundo_nombre').hasError('required') && (formGroup.get('segundo_nombre').touched || formGroup.get('segundo_nombre').dirty)">
+                           Nombre requerido
+                        </span>
                      </div>
                   </div>
                </div>
@@ -35,44 +50,99 @@
                   <div class="col-md-6">
                      <div class="form-group mb-3">
                         <label>Primer Apellido</label>
-                        <input type="text" class="form-control" placeholder="Primer Apellido">
+                        <input type="text" class="form-control" formControlName="primer_apellido"
+                           placeholder="Primer Apellido" maxlength="50">
+                        <span class="bg-primary text-white float-right pl-2 pr-2" style="font-size: 10px;">
+                           Max: 50 caracteres
+                        </span>
+                        <span class="text-danger" style="font-size: 10px;"
+                           *ngIf="formGroup.get('primer_apellido').hasError('required') && (formGroup.get('primer_apellido').touched || formGroup.get('primer_apellido').dirty)">
+                           Apellido requerido
+                        </span>
                      </div>
                   </div>
                   <div class="col-md-6">
                      <div class="form-group mb-3">
                         <label>Segundo Apellido</label>
-                        <input type="text" class="form-control" placeholder="Segundo Apellido">
+                        <input type="text" class="form-control" formControlName="segundo_apellido"
+                           placeholder="Segundo Apellido" maxlength="50">
+                        <span class="bg-primary text-white float-right pl-2 pr-2" style="font-size: 10px;">
+                           Max: 50 caracteres
+                        </span>
+                        <span class="text-danger" style="font-size: 10px;"
+                           *ngIf="formGroup.get('segundo_apellido').hasError('required') && (formGroup.get('segundo_apellido').touched || formGroup.get('segundo_apellido').dirty)">
+                           Apellido requerido
+                        </span>
                      </div>
                   </div>
                </div>
 
                <div class="row">
-                  <div class="col-md-3">
+                  <div class="col-md-4">
                      <div class="form-group mb-3">
                         <label>Fecha Nacimiento</label>
-                        <input type="date" class="form-control">
-                     </div>
-                  </div>
-
-                  <div class="col-md-3">
-                     <div class="form-group mb-3">
-                        <label>Rol</label>
-                        <input type="text" class="form-control" placeholder="Rol">
+                        <input type="date" class="form-control" formControlName="fecha_nacimiento">
+                        <span class="text-danger" style="font-size: 10px;"
+                           *ngIf="formGroup.get('fecha_nacimiento').hasError('required') && (formGroup.get('fecha_nacimiento').touched || formGroup.get('fecha_nacimiento').dirty)">
+                           Apellido requerido
+                        </span>
                      </div>
                   </div>
 
                   <div class="col-md-4">
                      <div class="form-group mb-3">
-                        <label>Correo Electronico</label>
-                        <input type="email" class="form-control" placeholder="Correo Electronico">
+                        <label>Rol</label>
+                        <input type="text" class="form-control" formControlName="rol" placeholder="Rol" maxlength="45">
+                        <span class="bg-primary text-white float-right pl-2 pr-2" style="font-size: 10px;">
+                           Max: 45 caracteres
+                        </span>
+                        <span class="text-danger" style="font-size: 10px;"
+                           *ngIf="formGroup.get('rol').hasError('required') && (formGroup.get('rol').touched || formGroup.get('rol').dirty)">
+                           Rol requerido
+                        </span>
                      </div>
                   </div>
 
-                  <div class="col-md-2">
+                  <div class="col-md-4">
+                     <div class="form-group mb-3">
+                        <label>DPI</label>
+                        <input type="number" class="form-control" formControlName="dpi" placeholder="Rol"
+                           maxlength="20">
+                        <span class="bg-primary text-white float-right pl-2 pr-2" style="font-size: 10px;">
+                           Max: 20 caracteres
+                        </span>
+                        <span class="text-danger" style="font-size: 10px;"
+                           *ngIf="formGroup.get('dpi').hasError('required') && (formGroup.get('dpi').touched || formGroup.get('dpi').dirty)">
+                           DPI requerido
+                        </span>
+                        <span class="text-danger" style="font-size: 10px;"
+                           *ngIf="formGroup.get('dpi').hasError('pattern') && (formGroup.get('dpi').touched || formGroup.get('dpi').dirty)">
+                           DPI invalido
+                        </span>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-8">
+                     <div class="form-group mb-3">
+                        <label>Correo Electronico</label>
+                        <input type="email" class="form-control" formControlName="correo_electronico"
+                           placeholder="Correo Electronico" maxlength="75">
+                        <span class="bg-primary text-white float-right pl-2 pr-2" style="font-size: 10px;">
+                           Max: 75 caracteres
+                        </span>
+                        <span class="text-danger" style="font-size: 10px;"
+                           *ngIf="formGroup.get('correo_electronico').hasError('required') && (formGroup.get('correo_electronico').touched || formGroup.get('correo_electronico').dirty)">
+                           Correo requerido
+                        </span>
+                     </div>
+                  </div>
+
+                  <div class="col-md-4">
                      <div class="form-check form-check-flat form-check-primary">
                         <label class="form-check-label">
-                           <input type="checkbox" class="form-check-input">
-                           Estado
+                           <input type="checkbox" class="form-check-input" formControlName="estado">
+                           Disponible
                            <i class="input-helper"></i>
                         </label>
                      </div>
@@ -81,7 +151,7 @@
 
                <div class="row">
                   <div class="col-md-12">
-                     <button type="submit" class="btn btn-gradient-primary btn-block">Guardar</button>
+                     <button type="submit" class="btn btn-gradient-primary btn-block" (click)="registrar()">Guardar</button>
                   </div>
                </div>
             </form>
