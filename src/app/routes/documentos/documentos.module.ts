@@ -4,6 +4,9 @@ import { DocumentosComponent } from './documentos/documentos.component';
 import { RouterModule, Routes } from '@angular/router';
 import { DocumentosFormComponent } from './documentos/documentos-form/documentos-form.component';
 import { DocumentosListComponent } from './documentos/documentos-list/documentos-list.component';
+import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -30,10 +33,12 @@ const routes: Routes = [
     DocumentosComponent,
     DocumentosFormComponent,
     DocumentosListComponent
-
   ],
   imports: [
     CommonModule,
+    NgbTooltipModule,
+    NgbModule,
+    FormsModule,
     RouterModule.forChild(routes)
   ]
 })

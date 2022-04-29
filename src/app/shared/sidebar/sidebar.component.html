@@ -19,10 +19,10 @@
         <i class="mdi mdi-home menu-icon"></i>
       </a>
     </li> -->
-    <li class="nav-item" [ngClass]="{ 'active': configuracion.isActive }">
-      <a class="nav-link" routerLink="/configuracion" routerLinkActive #configuracion="routerLinkActive">
-        <span class="menu-title">Configuracion</span>
-        <i class="mdi mdi-wrench menu-icon"></i>
+    <li class="nav-item" [ngClass]="{ 'active': documentos.isActive }">
+      <a class="nav-link" routerLink="/documentos" routerLinkActive #documentos="routerLinkActive">
+        <span class="menu-title">Documentos</span>
+        <i class="mdi mdi-file menu-icon"></i>
       </a>
     </li>
     <!-- <li class="nav-item" [ngClass]="{ 'active': catalogos.isActive }">
@@ -31,17 +31,17 @@
         <i class="mdi mdi-clipboard menu-icon"></i>
       </a>
     </li> -->
-    <li class="nav-item">
+    <li class="nav-item" [ngClass]="{'active' : usuarios.isActive }">
       <a class="nav-link" (click)="uiBasicCollapsed = !uiBasicCollapsed" [attr.aria-expanded]="uiBasicCollapsed"
         aria-controls="ui-basic">
         <span class="menu-title">Catalogos</span>
         <i class="menu-arrow"></i>
-        <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+        <i class="mdi mdi-clipboard menu-icon"></i>
       </a>
       <div class="collapse" id="ui-basic" [ngbCollapse]="!uiBasicCollapsed">
         <ul class="nav flex-column sub-menu">
           <li class="nav-item"> <a class="nav-link" routerLink="catalogos/usuarios" routerLinkActive="active"
-              #accordions="routerLinkActive">Usuarios</a></li>
+              #usuarios="routerLinkActive">Usuarios</a></li>
         </ul>
       </div>
     </li>

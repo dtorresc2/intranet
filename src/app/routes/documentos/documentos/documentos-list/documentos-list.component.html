@@ -1,1 +1,110 @@
-<p>documentos-list works!</p>
+<div class="page-header">
+   <h3 class="page-title">
+      <button type="button" class="btn btn-outline-danger btn-icon-text" (click)="openMediumModal(mediumModalContent)">
+         <i class="mdi mdi-upload btn-icon-prepend"></i>
+         Cargar Archivo
+      </button>
+   </h3>
+</div>
+
+<div class="row mt-lg">
+   <div class="col-xl-2 col-md-3 col-sm-6 grid-margin stretch-card">
+      <div class="card text-center">
+         <div class="card-body">
+            <h4 class="card-title">Hola.pdf</h4>
+            <i class="mdi mdi-file text-primary mdi-48px"></i>
+            <br>
+            <span class="float-right">
+               <a> <i class="mdi mdi-delete text-danger"></i></a>
+            </span>
+         </div>
+      </div>
+   </div>
+   <div class="col-xl-2 col-md-3 col-sm-6 grid-margin stretch-card">
+      <div class="card text-center">
+         <div class="card-body">
+            <h4 class="card-title">Hola.pdf</h4>
+            <i class="mdi mdi-file text-primary mdi-48px"></i>
+            <br>
+            <span class="float-right">
+               <a> <i class="mdi mdi-delete text-danger"></i></a>
+            </span>
+         </div>
+      </div>
+   </div>
+   <div class="col-xl-2 col-md-3 col-sm-6 grid-margin stretch-card">
+      <div class="card text-center">
+         <div class="card-body">
+            <h4 class="card-title">Hola.pdf</h4>
+            <i class="mdi mdi-file text-primary mdi-48px"></i>
+            <br>
+            <span class="float-right">
+               <a> <i class="mdi mdi-delete text-danger"></i></a>
+            </span>
+         </div>
+      </div>
+   </div>
+   <div class="col-xl-2 col-md-3 col-sm-6 grid-margin stretch-card">
+      <div class="card text-center">
+         <div class="card-body">
+            <h4 class="card-title">Hola.pdf</h4>
+            <i class="mdi mdi-file text-primary mdi-48px"></i>
+            <br>
+            <span class="float-right">
+               <a> <i class="mdi mdi-delete text-danger"></i></a>
+            </span>
+         </div>
+      </div>
+   </div>
+   <div class="col-xl-2 col-md-3 col-sm-6 grid-margin stretch-card">
+      <div class="card text-center">
+         <div class="card-body">
+            <h4 class="card-title">Hola.pdf</h4>
+            <i class="mdi mdi-file text-primary mdi-48px"></i>
+            <br>
+            <span class="float-right">
+               <a> <i class="mdi mdi-delete text-danger"></i></a>
+            </span>
+         </div>
+      </div>
+   </div>
+</div>
+
+<!-- MODAL DE ARCHIVOS -->
+<ng-template #mediumModalContent let-modal class="modal fade" id="exampleModal-2" aria-labelledby="exampleModalLabel-2">
+   <div class="modal-content">
+      <div class="modal-header">
+         <h5 class="modal-title" id="exampleModalLabel-2">Modal title</h5>
+         <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+         </button>
+      </div>
+      <div class="modal-body">
+
+         <form class="forms-sample">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="form-group mb-3">
+                     <label>Nombre Archivo</label>
+                     <input type="text" class="form-control" placeholder="Nombre Archivo" maxlength="50"
+                        id="nombreArchivo" name="nombreArchivo" [ngModel]="this.NOMBRE_ARCHIVO">
+                  </div>
+               </div>
+               <div class="col-md-12">
+                  <div class="form-group custom-file mb-3">
+                     <input type="file" class="form-control" id="customFileLang"
+                        (change)="handleFileInput($event.target.files)">
+                     <label class="custom-file-label" for="customFileLang">Seleccione Archivo</label>
+                  </div>
+               </div>
+            </div>
+         </form>
+
+      </div>
+      <div class="modal-footer">
+         <button type="button" class="btn btn-success" (click)="registrarDocumento()">Submit</button>
+         <button type="button" class="btn btn-light"
+            (click)="modal.close(); this.NOMBRE_ARCHIVO = ''; this.TAMANO= ''">Cancel</button>
+      </div>
+   </div>
+</ng-template>
