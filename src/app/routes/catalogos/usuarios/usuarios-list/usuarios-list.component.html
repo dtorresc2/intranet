@@ -1,8 +1,25 @@
-<div class="row">
+<nav aria-label="breadcrumb" role="navigation">
+   <ol class="breadcrumb bg-inverse-primary">
+      <li class="breadcrumb-item"><a routerLink="/catalogos">Catalogos</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Usuarios</li>
+   </ol>
+</nav>
+
+<div *ngIf="!this.carga" class="spinner-wrapper">
+   <div class="donut"></div>
+</div>
+
+<div *ngIf="this.carga" class="row">
    <div class="col-lg-12 grid-margin stretch-card">
       <div class="card">
          <div class="card-body">
             <h4 class="card-title">Lista de Usuarios</h4>
+            <div class="float-right">
+               <button type="button" class="btn btn-gradient-primary btn-icon-text" (click)="crearUsuario()">
+                  <i class="mdi mdi-account-plus  btn-icon-prepend"></i>
+                  Crear Usuario
+               </button>
+            </div>
             <div class="table-responsive">
                <table class="table table-striped">
                   <thead>
@@ -26,7 +43,7 @@
                         <td>
                            <div>
                               <button type="button" class="btn btn-gradient-primary btn-rounded btn-icon btn-sm"
-                                 placement="top" ngbTooltip="Editar">
+                                 placement="top" ngbTooltip="Editar" (click)="editarUsuario(item.ID_USUARIO)">
                                  <i class="mdi mdi-grease-pencil"></i>
                               </button>
                               <button type="button" class="btn btn-gradient-primary btn-rounded btn-icon"

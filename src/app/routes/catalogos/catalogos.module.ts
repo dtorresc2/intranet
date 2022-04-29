@@ -25,7 +25,7 @@ const routes: Routes = [
       },
       {
         path: ':id/editar',
-        component: UsuariosListComponent
+        component: UsuariosFormComponent
       }
     ]
   },
