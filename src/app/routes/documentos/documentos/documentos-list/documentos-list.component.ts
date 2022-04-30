@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { DocumentoService } from 'src/app/service/documento/documento.service';
+import { environment } from 'src/environments/environment';
 
 import Swal from 'sweetalert2';
 
@@ -13,11 +15,21 @@ export class DocumentosListComponent implements OnInit {
   base64Final: string = null;
 
   NOMBRE_ARCHIVO: any = '';
-  TAMANO : any = '';
+  TAMANO: any = '';
 
-  constructor(private modalService: NgbModal) { }
+  DOCUMENTOS = [];
 
-  ngOnInit(): void {
+  carga: boolean = false;
+
+  constructor(
+    private modalService: NgbModal,
+    private documentoService: DocumentoService
+  ) { }
+
+  async ngOnInit() {
+    this.carga = false;
+    this.DOCUMENTOS = await this.documentoService.obtenerDocumentos();
+    this.carga = true;
   }
 
   openMediumModal(mediumModalContent) {
@@ -31,18 +43,21 @@ export class DocumentosListComponent implements OnInit {
     this.NOMBRE_ARCHIVO = this.fileToUpload.name
     this.TAMANO = this.fileToUpload.size
 
-    console.log(files);
     reader.readAsDataURL(this.fileToUpload);
     reader.onload = () => {
       const base64str = reader.result.toString();
       this.base64Final = base64str.split("base64,")[1];
-      console.log(this.base64Final);
     };
   }
 
-  registrarDocumento() {
+  async registrarDocumento() {
     if (this.TAMANO > 0) {
-
+      this.carga = false;
+      await this.documentoService.registrarS3(this.NOMBRE_ARCHIVO, this.base64Final);
+      await this.documentoService.registrarDocumento(this.NOMBRE_ARCHIVO, this.TAMANO);
+      this.modalService.dismissAll();
+      this.DOCUMENTOS = await this.documentoService.obtenerDocumentos();
+      this.carga = true;
     }
     else {
       Swal.fire({
@@ -53,5 +68,17 @@ export class DocumentosListComponent implements OnInit {
         showCloseButton: true
       });
     }
+  }
+
+  verArchivo(ruta, nombre) {
+    return environment.SE_URL + ruta + nombre;
+  }
+
+  async eliminarDocumento(id, nombre) {
+    this.carga = false;
+    await this.documentoService.eliminarS3(nombre);
+    await this.documentoService.eliminarDocumento(id);
+    this.DOCUMENTOS = await this.documentoService.obtenerDocumentos();
+    this.carga = true;
   }
 }

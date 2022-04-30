@@ -5,8 +5,8 @@ import { ConfiguracionComponent } from './routes/configuracion/configuracion/con
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/configuracion', pathMatch: 'full' },
-  { path: 'configuracion', loadChildren: () => import('./routes/configuracion/configuracion.module').then(m => m.ConfiguracionModule) },
+  { path: '', redirectTo: '/documentos', pathMatch: 'full' },
+  // { path: 'configuracion', loadChildren: () => import('./routes/configuracion/configuracion.module').then(m => m.ConfiguracionModule) },
   { path: 'catalogos', loadChildren: () => import('./routes/catalogos/catalogos.module').then(m => m.CatalogosModule) },
   { path: 'documentos', loadChildren: () => import('./routes/documentos/documentos.module').then(m => m.DocumentosModule) },
   // { path: 'configuracion', component: ConfiguracionComponent },

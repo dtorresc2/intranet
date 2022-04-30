@@ -7,6 +7,8 @@ import { DocumentosListComponent } from './documentos/documentos-list/documentos
 import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { DocumentoService } from 'src/app/service/documento/documento.service';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {
@@ -38,8 +40,12 @@ const routes: Routes = [
     CommonModule,
     NgbTooltipModule,
     NgbModule,
+    HttpClientModule,
     FormsModule,
     RouterModule.forChild(routes)
+  ],
+  providers: [
+    DocumentoService
   ]
 })
 export class DocumentosModule { }

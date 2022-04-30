@@ -6,11 +6,16 @@ export const environment = {
   production: false,
 
   API_URL: 'http://api.repuestoscordero.click/sp/',
+  S3_SERVICE: 'http://api.repuestoscordero.click/S3/',
+  SE_URL: 'https://s3.amazonaws.com/repuestos-cordero/',
 
   // PROCEDIMIENTOS ALMACENADOS
   LISTAR_USUARIOS: 'SELECT_USUARIO',
   REGISTRAR_USUARIOS: 'Llenar_Usuario',
-  ELIMINAR_USUARIOS: 'DELETE_USUARIO'
+  ELIMINAR_USUARIOS: 'DELETE_USUARIO',
+  REGISTRAR_DOCUMENTO: 'Llenar_DOCUMENTACION',
+  LISTAR_DOCUMENTOS: 'SELECT_DOCUMENTACION',
+  ELIMINAR_DOCUMENTOS: 'DELETE_DOCUMENTACION'
 };
 
 /*
